@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { Category } = require('../../models');
+const { Tag } = require('../../models');
 
 router.get('/', (req, res) => {
-    Category.findAll()
-    .then(dbCategorytData => res.json(dbCategorytData))
+    Tag.findAll()
+    .then(dbTagData => res.json(dbTagData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    Category.findOne({
+    Tag.findOne({
       where: {
         id: req.params.id
       },
@@ -52,7 +52,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // expects => {comment_text: "This is the comment", user_id: 1, post_id: 2}
-  Category.create({
+  Tag.create({
     category_text: req.body.category_text,
     user_id: req.body.user_id,
     post_id: req.body.post_id
@@ -65,7 +65,7 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    Category.update(
+    Tag.update(
       {
         title: req.body.title
       },
@@ -89,7 +89,7 @@ router.put('/:id', (req, res) => {
   });
 
 router.delete('/:id', (req, res) => {
-    Category.destroy({
+    Tag.destroy({
     where: {
       id: req.params.id
     }

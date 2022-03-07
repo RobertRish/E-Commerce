@@ -3,7 +3,7 @@ const { Category } = require('../../models');
 
 router.get('/', (req, res) => {
     Category.findAll()
-    .then(dbCategorytData => res.json(dbCategorytData))
+    .then(dbCategoryData => res.json(dbCategoryData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -51,7 +51,6 @@ router.get('/:id', (req, res) => {
   });
 
 router.post('/', (req, res) => {
-  // expects => {comment_text: "This is the comment", user_id: 1, post_id: 2}
   Category.create({
     category_text: req.body.category_text,
     user_id: req.body.user_id,
