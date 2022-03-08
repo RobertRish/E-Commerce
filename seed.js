@@ -1,8 +1,7 @@
-// 1. Establish model relationships
-// 2. Write API routes (all models need C,R,U, and D routes)
-// 3. Set up seed.js
-// 4. Use environment variables to store sensitive data, 
+// 2. Fix API routes to not have module project code (all models need C,R,U, and D routes)
 // like your MySQL username, password, and database name.
+// delete this file
+
 
 // What is { force: true/false } again?
 
