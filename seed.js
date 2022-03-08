@@ -1,9 +1,8 @@
 // 2. Fix API routes to not have module project code (all models need C,R,U, and D routes)
 // like your MySQL username, password, and database name.
 // delete this file
+// delete fantastic umbrella
 
-
-// What is { force: true/false } again?
 
 const Sequelize = require('sequelize');
 const { Category } = require('./models/Category');
