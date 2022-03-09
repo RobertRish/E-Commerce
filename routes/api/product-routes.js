@@ -39,14 +39,15 @@ router.get('/:id', (req, res) => {
       });
   });
 
+  // CREATE new product row
 router.post('/', (req, res) => {
-  // expects => {comment_text: "This is the comment", user_id: 1, post_id: 2}
   Product.create({
-    category_text: req.body.category_text,
-    user_id: req.body.user_id,
-    post_id: req.body.post_id
+    product_name: req.body.product_name,
+    price: req.body.price,
+    stock: req.body.stock,
+    tag_id: req.body.tag_id
   })
-    .then(dbCategoryData => res.json(dbCategoryData))
+    .then(dbProductData => res.json(dbProductData))
     .catch(err => {
       console.log(err);
       res.status(400).json(err);

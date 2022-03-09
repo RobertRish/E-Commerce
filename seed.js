@@ -1,5 +1,5 @@
 // 2. Fix API routes to not have module project code (all models need C,R,U, and D routes)
-// like your MySQL username, password, and database name.
+// Do update and delete routes
 // delete this file
 // delete fantastic umbrella
 
