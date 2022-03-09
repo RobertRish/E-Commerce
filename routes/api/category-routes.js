@@ -2,11 +2,7 @@ const router = require('express').Router();
 const { Category, Product } = require('../../models');
 
 
-
-router.get('/ping', (req, res) => {
-  res.send('ping'); 
-})
-
+// GET all categories
 router.get('/', (req, res) => {
     Category.findAll()
     .then(dbCategoryData => res.json(dbCategoryData))
@@ -16,6 +12,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// GET category by id
 router.get('/:id', (req, res) => {
     Category.findOne({
       where: {
@@ -42,6 +39,7 @@ router.get('/:id', (req, res) => {
       });
   });
 
+// CREATE category
 router.post('/', (req, res) => {
   Category.create({
     category_name: req.body.category_name,
