@@ -22,12 +22,12 @@ router.get('/:id', (req, res) => {
         }
       ]
     })
-      .then(dbCategoryData => {
-        if (!dbCategoryData) {
+      .then(dbTagData => {
+        if (!dbTagData) {
           res.status(404).json({ message: 'No Category found with this id' });
           return;
         }
-        res.json(dbCategoryData);
+        res.json(dbTagData);
       })
       .catch(err => {
         console.log(err);
@@ -35,14 +35,12 @@ router.get('/:id', (req, res) => {
       });
   });
 
+// CREATE category
 router.post('/', (req, res) => {
-  // expects => {comment_text: "This is the comment", user_id: 1, post_id: 2}
   Tag.create({
-    category_text: req.body.category_text,
-    user_id: req.body.user_id,
-    post_id: req.body.post_id
+    tag_name: req.body.tag_name,
   })
-    .then(dbCategoryData => res.json(dbCategoryData))
+    .then(dbTagData => res.json(dbTagData))
     .catch(err => {
       console.log(err);
       res.status(400).json(err);
