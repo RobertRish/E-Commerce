@@ -54,6 +54,7 @@ router.post('/', (req, res) => {
     });
 });
 
+// UPDATE product row
 router.put('/:id', (req, res) => {
     Product.update(
       {
