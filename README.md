@@ -1,4 +1,5 @@
 # E-Commerce
+A back end for an e-commerce website that allows the proprietor to manage their website's database.
 
 ## Initializing server/GET all routes
 https://youtu.be/aIuKgeqm2eU
