@@ -96,18 +96,19 @@ router.put('/:id', (req, res) => {
     });
 });
 
+// DELETES product
 router.delete('/:id', (req, res) => {
     Product.destroy({
     where: {
       id: req.params.id
     }
   })
-    .then(dbCategoryData => {
-      if (!dbCategoryData) {
-        res.status(404).json({ message: 'No category found with this id!' });
+    .then(dbProductData => {
+      if (!dbProductData) {
+        res.status(404).json({ message: 'No product found with this id!' });
         return;
       }
-      res.json(dbCategoryData);
+      res.json(dbProductData);
     })
     .catch(err => {
       console.log(err);

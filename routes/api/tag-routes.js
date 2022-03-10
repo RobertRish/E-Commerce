@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
       });
   });
 
-// CREATE category
+// CREATE tag
 router.post('/', (req, res) => {
   Tag.create({
     tag_name: req.body.tag_name,
@@ -47,23 +47,21 @@ router.post('/', (req, res) => {
     });
 });
 
+// UPDATE tag
 router.put('/:id', (req, res) => {
-    Tag.update(
-      {
-        title: req.body.title
-      },
+    Tag.update(req.body,
       {
         where: {
           id: req.params.id
         }
       }
     )
-      .then(dbCategoryData => {
-        if (!dbCategoryData) {
-          res.status(404).json({ message: 'No post found with this id' });
+      .then(dbTagData => {
+        if (!dbTagData) {
+          res.status(404).json({ message: 'No tag found with this id' });
           return;
         }
-        res.json(dbCategoryData);
+        res.json(dbTagData);
       })
       .catch(err => {
         console.log(err);
@@ -71,18 +69,19 @@ router.put('/:id', (req, res) => {
       });
   });
 
+  // DELETES tag
 router.delete('/:id', (req, res) => {
     Tag.destroy({
     where: {
       id: req.params.id
     }
   })
-    .then(dbCategoryData => {
-      if (!dbCategoryData) {
-        res.status(404).json({ message: 'No category found with this id!' });
+    .then(dbTagData => {
+      if (!dbTagData) {
+        res.status(404).json({ message: 'No tag found with this id!' });
         return;
       }
-      res.json(dbCategoryData);
+      res.json(dbTagData);
     })
     .catch(err => {
       console.log(err);
